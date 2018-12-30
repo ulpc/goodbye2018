@@ -1,0 +1,46 @@
+<!doctype! html>
+<html>
+    <head>
+        <title>Good Bye 2018</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    </head>
+    <body>
+
+        <div class="container jumbotron">
+            <h2 class="text-center">당신의 2018년</h2>
+            <div class="row justify-content-center">
+                <div id="card" class="col-sm-4">
+                  <div class="card-container">
+                      <div class="front">
+                          <div class="inner">
+                              <span>탭해서 질문 보기</span>
+                          </div>
+                      </div>
+                      <div class="back">
+                          <div class="inner">
+                              <p id="q"></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="footer">
+		<p><a href="http://from-theo.com/">theo</a>와 <a href="http://undersalon.com/">언더싸롱</a>이 함께 만듬</p>
+            </div>
+
+        </div>
+
+    </body>
+    <script>
+       $("#card").hover(function (e) {
+           $.get( "/get", function( data ) {
+               $("#q").text(data);
+           });
+       },function(){});
+    </script>
+</html>
